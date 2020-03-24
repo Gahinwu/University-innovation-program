@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消化系统</title>
+</head>
+<body>
+    <div class="bodyInfo" style ="
+            width: 760px;
+            height: 900px;
+            margin-top: 10px;
+            margin-left: 20px;
+            background-color: rgb(151, 175, 241);">
+    
+        <b style="
+            width: 700px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 250px;
+            font-size: 30px;
+            font-weight: bold;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: darkorchid;">身体健康调查表</b><br>
+            
+            
+           
+            选择医生：
+            <select name="doctors">
+            <option value="doctor_Zhuang" selected>庄医生</option>
+            <option value="doctor_Li">李医生</option>
+            <option value="doctor_Chan">陈医生</option>
+            <option value="doctor_Wang">王医生</option>
+            </select>
+
+            <br>
+        
+        症状:<br>
+            <input type="checkbox" name="symptom" value="cold">
+            卡他症状（鼻咽症状鼻塞、咽干、痒为主）、不发热或中轻度发热<br>
+            <br>
+            
+            <input type="checkbox" name="symptom" value="wind-cold">恶寒重、发热轻，无汗，清涕，全身症状明显，舌苔淡白。<br>
+            <br>
+            <input type="checkbox" name="symptom" value="wind-hot">
+            发热重，恶寒轻，黄稠涕，舌红。<br>
+            <br>
+            <input type="checkbox" name="symptom" value="flu">
+            突发高热、寒战、浑身酸痛。群发性，传染性强。<br>
+            <br>
+            其他问题：
+            <br>
+            <textarea rows='10' name='other_symptoms' cols='40'></textarea><br>
+            <input type='submit' value='提交' style="
+                font-size: 20px;
+                font-family: 微软雅黑;
+                font-weight: bold;
+                line-height: 20px;
+                border-radius: 5px;
+                color: #ffffff;
+                background-color: #37B4CA;"><br>
+            <input type='reset' value='重置' style="
+                font-size: 20px;
+                font-family: 微软雅黑;
+                font-weight: bold;
+                line-height: 20px;
+                border-radius: 5px;
+                color: #ffffff;
+                background-color: #37B4CA;">
+        </form>
+<div class="tail" id="tail" style="
+    width: 400px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(250, 3, 3);">
+<p><b>注意：</b> 部分地区和部分药品社保卡无法报销，请自行缴费
+</p>
+</div>
+<br>
+    </div>
+</body>
+</html>

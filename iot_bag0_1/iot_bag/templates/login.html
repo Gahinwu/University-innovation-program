@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>远程医疗诊断系统</title>
+</head>
+<style>
+    body {
+        background: url("../static/background.jpg") top left;
+        background-size: 100%;
+    }
+</style>
+
+<body>
+    <div class="header" id="header" style="
+    float: left;
+    font-size: 50px; 
+    font-weight: bolder;
+    text-align: center; 
+    color: blueviolet;
+    width: 1200px; 
+    height: 80px;
+    word-wrap: none;
+    line-height:30px;
+    font-family: 微软雅黑;">
+        <br>
+        <b>远程医疗诊断系统</b>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <!--登录窗体-->
+    <div class="login-boders-1" style="
+    width: 400px;
+    height: 400px;
+    margin-top: 50px;
+    margin-left: 400px;
+    background-color: rgb(139, 172, 233);">
+        <div class="login-boders-2" style="
+        width: 380px;
+        height: 350px;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-color: rgb(139, 172, 233);">
+            <div class="login-header" style="
+            width: 370px;
+            height: 100px;
+            margin-top: 10px;
+            margin-left: 5px;
+            font-size: 40px;
+            font-weight:normal;
+            font-style: normal;
+            text-align: center;
+            background-color: rgb(139, 172, 233);
+            font-family: 微软雅黑;">用户登录
+            </div>
+            <div class="login-body" style="
+            width: 370px;
+            height: 190px;
+            margin-top: 20px;
+            margin-left: 5px;
+            background-color: rgb(139, 172, 233);
+            ">
+                <form action="" method="post" autocomplete="off">
+                    <!--姓名输入框-->
+                    <div class="login-boder" style="
+                        width: 80%;
+	                    height: 40px;
+                        margin-top: 10px;
+                        margin-left: 10%;
+                        line-height: 40px;
+                        text-align: center;
+                        border: 1px solid #dddddd;
+                        border-radius: 5px;
+                        background-color: #efefef;">
+                        <input class="input" type="text" placeholder="输入用户名" name="username" style="
+                            width: 90%;
+                            float: left;
+                            margin-left: 5%;
+                            height: 37px;
+                            line-height: 37px;
+                            border:0px;
+                            color: #333333;
+                            font-size: 16px;
+                            background-color: #efefef;" />
+                    </div>
+
+                    <!--密码输入框-->
+                    <div class="longin-boder" style="
+                        width: 80%;
+	                    height: 40px;
+                        margin-top: 10px;
+                        margin-left: 10%;
+                        line-height: 40px;
+                        text-align: center;
+                        border: 1px solid #dddddd;
+                        border-radius: 5px;
+                        background-color: #efefef;">
+                        <input class="input" type="password" placeholder="输入密码" name="password" style="
+                        width: 90%;
+                        float: left;
+                        margin-left: 5%;
+                        height: 37px;
+                        line-height: 37px;
+                        border:0px;
+                        color: #333333;
+                        font-size: 16px;
+                        background-color: #efefef"/>
+                    </div>
+                    <input class="submit" type="submit" value="登录"  style="
+                        height: 40px;
+                        width: 80%;
+                        margin-top: 20px;
+                        margin-left: 10%;
+                        font-size: 16px;
+                        font-family: 微软雅黑;
+                        font-weight: bold;
+                        line-height: 38px;
+                        border-radius: 5px;
+                        color: #ffffff;
+                        background-color: #37B4CA;
+                    "/>
+                
+                </form>
+                <div class="sign-in" style="
+                height: 25px;
+                width: 20%;
+                margin-top: 5px;
+                margin-left: 80%;
+                font-size: 12px;
+                font-family: 微软雅黑;
+                font-weight:lighter;
+                line-height: 25px;
+                border-radius: 5px;
+                color: #ffffff;
+                background-color: #37B4CA;">
+                    <a href="{% url 'registration' %}">先注册后登录</a>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+
+</html>

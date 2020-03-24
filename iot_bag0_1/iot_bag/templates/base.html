@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>远程医疗诊断系统</title>
+</head>
+<style>
+    body {
+        background: url("../static/background.jpg") top left;
+        background-size: 100%;
+    }
+</style>
+
+<body>
+    <div class="header" id="header" style="
+    float: left;
+    font-size: 50px; 
+    font-weight: bolder;
+    text-align: center; 
+    color: blueviolet;
+    width: 100%; 
+    height: 10%;
+    word-wrap: none;
+    line-height:30px;
+    font-family: 微软雅黑;">
+        <br>
+        <b>远程医疗诊断系统</b>
+    <div class = "container" id="userInfo" style = "
+    float: left; 
+    width:95%;
+    height:2%;">
+    <h1 style="
+        font-size: 15px;
+        font-weight: normal;
+        float: right;
+        width: 50px;
+        height: 25px;
+        float: right;">welcome,<!--<a href="">{{username}}</a>-->{{username}}</h1></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!--顶部导航栏-->
+    <div class="top-menu" style="
+    width: 98%;
+    height: 8%;
+    margin-top: 4%;
+    margin-left: 1%;">
+        <div class="ui container" style="
+        width: 100%;
+        height: 60px;
+        margin-top: 5px;
+        border-radius: 10px;
+        background-color: rgb(188, 207, 241);">
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;
+            ">
+                <a href="{% url 'index' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">首页</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'questionnaire' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">健康调查</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'bodybase' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">身体数据</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'MedicalForm' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">病历单</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'logout' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">退出</a>
+            </div>            
+        </div>
+    </div>
+    <div class ="bodyInfo1" style="
+        width: 70%;
+        height: 1000px;
+        margin-top: 5%;
+        margin-left: 15%;
+        border-radius: 10px;
+        background-color: rgb(188, 207, 241);">
+        <div class="bodyInfo2" style="
+            width: 90%;
+            height: 1000px;
+            margin-top: 5%;
+            margin-left: 5%;
+            border-radius: 10px;
+            background-color: rgb(188, 207, 241);">
+            <div id="container1" style="height: 200px; float: none;">
+                <br>
+                <br>
+                <div class="text-preview" id="fbypwdeee" style="
+                    position: 40px; 
+                    float: left;
+                    font-size: 30px;
+                    text-decoration: none; 
+                    font-style: normal;
+                    margin-top: 8%;
+                    font-weight: bold;
+                    text-align: left;
+                    color: rgb(227, 76, 76); 
+                    width: 400px; height: 93px; 
+                    word-wrap: break-word; 
+                    line-height: 18px; font-family: 微软雅黑;">
+                    当前测试人员：
+                </div>
+
+                <div data-v1 class="group-preview-1" data-utem-id="id_1" itemid="id_1" zindex="11" style="float: left">
+                    <div class="preview-dom" id="name" style="
+                        position: 20px;
+                        font-size: 20px;
+                        text-decoration: none;
+                        font-style: 10px;
+                        font-weight: normal;
+                        text-align: center;
+                        color: rgb(0,0,0);
+                        width:150px;
+                        height:20px;
+                        word-wrap: break-word;
+                        margin-left: 4.5%;
+                        line-height:18px; font-family: 微软雅黑;">
+                        姓名：{{name}}
+                    </div>
+                    <br>
+                    <div class="preview-dom" id="sex" style="
+                        position: 20px;
+                        font-size: 20px;
+                        text-decoration: none;
+                        font-style: 10px;
+                        font-weight: normal;
+                        text-align: center;
+                        color: rgb(0,0,0);
+                        margin-top: 2%;
+                        margin-left: 2%;
+                        width:150px;
+                        height:20px;
+                        word-wrap: break-word;
+                        line-height:18px;
+                        font-family: 微软雅黑;">
+                        性别：{{sex}}
+
+                    </div>
+                    <br>
+                    <div class="preview-dom" id="stu_id" style="
+                        position: 20px;
+                        font-size: 20px;
+                        text-decoration: none;
+                        font-style: 10px;
+                        font-weight: normal;
+                        text-align: left;
+                        color: rgb(0,0,0);
+                        width:500px;
+                        height:20px;
+                        word-wrap: break-word;
+                        margin-top: 2%;
+                        margin-left: 7%;
+                        line-height:18px;
+                        font-family: 微软雅黑;">
+                        身份证号：{{ID_Card}}
+
+                    </div>
+                    <br>
+                    <div class="preview-dom" id="age" style="
+                        position: 20px;
+                        font-size: 20px;
+                        text-decoration: none;
+                        font-style: 10px;
+                        font-weight: normal;
+                        text-align: center;
+                        color: rgb(0,0,0);
+                        width:150px;
+                        height:20px;
+                        margin-top: 2%;
+                        margin-left: 3%;
+                        word-wrap: break-word;
+                        line-height:18px;
+                        font-family: 微软雅黑;">
+                        年龄：{{age}}
+
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <br>
+            <div id="container2" style="height: 392px; float: left;" ;
+                style="position: absolute; top: 570px; left: 285px; width: 485px; height: 90px;">
+            <br>
+            <br>
+            
+                <div class="text-preview" id="text-result"style="
+                font-size: 30px;
+                text-decoration: none;
+                font-style: normal;
+                font-weight: bolder;
+                text-align: center;
+                color: rgb(227,76,76);
+                width: 760px;
+                height: 93px;
+                word-wrap: break-word;
+                line-height: 18px;
+                font-family: 微软雅黑;">
+                    检测结果:
+                </div>
+
+                <div data-v2 class="group-preview-2" data-utem-id="id_2" itemid="id_2" zindex="11"
+                    style="width:800px; height: 300px">
+                    <div class="preview-dom" id="temperature" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:200px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        体温:{{ Temperature }}'C
+                    </div>
+
+                    <div class="preview-dom" id="height" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:200px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        身高:{{ Height }}cm
+                    </div>
+
+                    <div class="preview-dom" id="weight" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:200px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        体重:{{ Weight }}kg
+                    </div>
+
+                    <div class="preview-dom" id="body-fat-rate" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:200px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        体脂率:{{ BodyFatRate }}%
+                    </div>
+                    <br>
+                    <br>
+
+                    
+
+
+                </div>
+
+                <div data-v3 class="group-preview-3" data-utem-id="id_3" itemid="id_3" zindex="11"
+                    style="width:1000px; height: 400px">
+                    <div class="preview-dom" id="heartbeat-spo" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:250px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        心跳血氧：{{ HeartBeatSpo }}/bpm
+                    </div>
+
+                    <div class="preview-dom" id="Tongue" style="
+                        position: 25px;
+                        font-size: 25px;
+                        float: left;
+                        text-decoration: none; 
+                        font-style: 10px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: rgba(0,0,0); 
+                        width:250px;
+                        height:80px;
+                        word-wrap: break-word;
+                        line-height:18px; 
+                        font-family:微软雅黑;">
+                        舌根图片：
+                        <div class="picture" id="Tougue" style="margin-top: 10%;">
+                        <img src="../static/Tougue.png" alt="舌根图片" />
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

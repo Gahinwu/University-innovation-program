@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>远程医疗诊断系统</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+<style>
+    body {
+        background: url("../static/background.jpg") top left;
+        background-size: 100%;
+        
+    }
+</style>
+
+<body>
+    <div class="header" id="header" style="
+    float: left;
+    font-size: 50px; 
+    font-weight: bolder;
+    text-align: center; 
+    color: blueviolet;
+    width: 100%; 
+    height: 10%;
+    word-wrap: none;
+    line-height:30px;
+    font-family: 微软雅黑;">
+        <br>
+        <b>远程医疗诊断系统</b>
+    <div class = "container" id="userInfo" style = "
+    float: left; 
+    width:95%;
+    height:2%;">
+    <h1 style="
+        font-size: 15px;
+        font-weight: normal;
+        float: right;
+        width: 50px;
+        height: 25px;
+        float: right;">welcome,<!--<a href="">{{username}}</a>-->{{username}}</h1></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!--顶部导航栏-->
+    <div class="top-menu" style="
+    width: 98%;
+    height: 8%;
+    margin-top: 4%;
+    margin-left: 1%;">
+        <div class="ui container" style="
+        width: 100%;
+        height: 60px;
+        margin-top: 5px;
+        border-radius: 10px;
+        background-color: rgb(188, 207, 241);">
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;
+            ">
+                <a href="{% url 'index' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">首页</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'questionnaire' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">健康调查</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'bodybase' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">身体数据</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'MedicalForm' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">病历单</a>
+            </div>
+            <div class="column" style="
+            float:left;
+            height: 100%;
+            width: 20%;
+            margin-top: 1%;
+            text-align: center;">
+                <a href="{% url 'logout' %}" style="
+                font-size: 25px;
+                font-weight:normal;
+                color: blueviolet;
+                text-decoration: none;">退出</a>
+            </div>            
+        </div>
+    </div>
+    <!--调查表-->
+<div class ="questionnaire" style="
+    width: 70%;
+    height: 95%;
+    margin-top: 30px;
+    margin-left: 20%;
+    border-radius:25px;">
+    <form action="" method="post" style="
+    width: 80%;
+    height: 95%;
+    margin-top: 5%;
+    margin-left: 2%;
+    font-size: 18px;
+    border-radius:25px;
+    font-weight:900;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 50px;
+    background-color: rgb(188, 207, 241);
+    color: rgb(10, 10, 10);
+    border-radius:10px;
+    ">
+        <div class ="personInfo" style="
+            width: 80%;
+            height: 60%;
+            margin-top: 2%;
+            margin-left: 10%;
+            background-color: rgb(188, 207, 241);">
+        
+            <b style="
+                width: 98%;
+                height: 10%;
+                margin-top: 5px;
+                margin-left: 35%;
+                font-size: 30px;
+                font-weight: bold;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color: darkorchid;">个人信息表</b><br>
+                姓名 : <input type="text" name="name" style="
+                width: 250px;
+                height: 35px;
+                margin-left: 10px;
+                font-size: 20px;
+                font-weight: 600;"><br>
+                <!--文本域-->
+                身份证号 : <input type="text" name="ID_Card" style="
+                width: 250px;
+                height: 35px;
+                margin-left: 10px;
+                font-size: 20px;
+                font-weight: 600;"><br>
+                社保卡号 : <input type="text" name="SP_Card" style="
+                width: 250px;
+                height: 35px;
+                margin-left: 10px;
+                font-size: 20px;
+                font-weight: 600;"><br>
+                年龄 : <input type="text" name="Age" style="
+                width: 250px;
+                height: 35px;
+                margin-left: 10px;
+                font-size: 20px;
+                font-weight: 600;"><br>
+                <!--单选按钮-->
+                性别：<br>
+                    <input type="radio" name="Sex" value="man" style="
+                    margin-left: 10px;
+                    font-size: 20px;
+                    font-weight: 600;">男<br>
+                    <input type="radio" name="Sex" value="woman" style="
+                    margin-left: 10px;
+                    font-size: 20px;
+                    font-weight: 600;">女
+        </div>
+        <!--
+        <iframe src="../DigestiveSystem" style="
+        width: 800px;
+        height: 900px;"></iframe>
+        -->
+        <!---->
+        <div class="bodyInfo" style="
+            width: 80%;
+            height: 60%;
+            margin-top: 2%;
+            margin-left: 10%;
+            background-color: rgb(188, 207, 241);">
+            
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="System">
+                    <a href="#ResSystem" data-toggle="tab">呼吸系统</a></li>
+                <li >
+                    <a href="#DigSystem" data-toggle="tab">消化系统</a></li>
+                <li>
+                    <a href="#gynecology" data-toggle="tab">妇科</a></li>
+                <li>
+                    <a href="#UrinarySystem" data-toggle="tab">泌尿系统</a></li>                
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <!--呼吸系统-->
+                <div class="tab-pane fade in System" id="ResSystem">
+                    <!--调查表内容-->
+                    <div class="bodyInfo" style ="
+                        width: 80%;
+                        height: 70%;
+                        margin-top: 2%;
+                        margin-left: 10%;
+                        background-color: rgb(188, 207, 241);">
+    
+                        <b style="
+                            width: 700px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 250px;
+                            font-size: 30px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: darkorchid;">症状调查表</b><br>
+            
+            
+           
+                            选择医生：
+                            <select name="doctors">
+                            <option value="doctor_Zhuang" selected>庄医生</option>
+                            <option value="doctor_Li">李医生</option>
+                            <option value="doctor_Chan">陈医生</option>
+                            <option value="doctor_Wang">王医生</option>
+                            </select>
+
+                            <br>
+                            <!--鼻塞，咽干，发热（程度不同），寒战，浑身酸痛，热咳（浓痰），寒咳，干咳（无痰）-->
+                            症状:<br>
+                                <input type="checkbox" name="symptom1" value="鼻塞">
+                                鼻塞<br>
+                                
+                                <input type="checkbox" name="symptom2" value="咽干">
+                                咽干<br>
+                            
+                                <input type="checkbox" name="symptom3" value="发热">
+                                发热<br>
+                            
+                                <input type="checkbox" name="symptom4" value="寒战,浑身酸痛">
+                                寒战,浑身酸痛<br>
+
+                                <input type="checkbox" name="symptom5" value="热咳（浓痰）">
+                                热咳（浓痰）<br>
+
+                                <input type="checkbox" name="symptom6" value="干咳（无痰）">
+                                干咳（无痰）<br>
+
+                                <input type="checkbox" name="symptom7" value="不符合上述症状">
+                                不符合上述症状<br>
+
+                                其他问题：
+                                <br>
+                                <textarea rows='10' name='other_symptoms' cols='40' style="
+                                    height: 200px;"></textarea><br>
+                                <input type='submit' value='提交' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;"><br>
+                                <input type='reset' value='重置' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;">
+                            </form>
+                        <div class="tail" id="tail" style="
+                            width: 520px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 12%;
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: rgb(250, 3, 3);">
+                        <p><b>注意：</b> 部分地区和部分药品社保卡无法报销，请自行缴费
+                        </p>
+                        </div>
+                        <br>    
+                </div>
+             </div>
+                
+                
+
+
+
+                <!--消化系统-->
+                <div class="tab-pane fade" id="DigSystem">
+                    <!--调查表内容-->
+                    <div class="bodyInfo" style ="
+                        width: 80%;
+                        height: 60%;
+                        margin-top: 2%;
+                        margin-left: 10%;
+                        background-color: rgb(188, 207, 241);">
+    
+                        <b style="
+                            width: 700px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 250px;
+                            font-size: 30px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: darkorchid;">症状调查表</b><br>
+            
+            
+           
+                            选择医生：
+                            <select name="doctors">
+                            <option value="doctor_Liu" selected>刘医生</option>
+                            <option value="doctor_Li">李医生</option>
+                            <option value="doctor_Zhao">赵医生</option>
+                            <option value="doctor_Wang">王医生</option>
+                            </select>
+
+                            <br>
+                             
+                            症状:<br>
+                                <input type="checkbox" name="symptom1" value="胃反酸，恶心">
+                                胃反酸，恶心<br>
+                                
+                                <input type="checkbox" name="symptom2" value="腹痛，腹胀，嗳气">
+                                腹痛，腹胀，嗳气<br>
+    
+                                <input type="checkbox" name="symptom3" value="呕吐，食欲不振">
+                                呕吐，食欲不振<br>
+                                
+                                <input type="checkbox" name="symptom4" value="腹鸣，食欲不振">
+                                腹鸣，食欲不振<br>
+                                
+                                <input type="checkbox" name="symptom5" value="发烧，寒战">
+                                发烧，寒战<br>
+
+                                <input type="checkbox" name="symptom6" value="大便出问题">
+                                大便带血，粘稠，次数少，大便困难等<br>
+
+                                <input type="checkbox" name="symptom7" value="不符合上述症状">
+                                不符合上述症状<br>
+
+                                其他问题：
+                                <br>
+                                <textarea rows='10' name='other_symptoms' cols='40' style="
+                                    height: 200px;"></textarea><br>
+                                <input type='submit' value='提交' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;"><br>
+                                <input type='reset' value='重置' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;">
+                            </form>
+                        <div class="tail" id="tail" style="
+                            width: 520px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 12%;
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: rgb(250, 3, 3);">
+                        <p><b>注意：</b> 部分地区和部分药品社保卡无法报销，请自行缴费
+                        </p>
+                        </div>           
+                    </div>
+                </div>
+
+
+                <!--妇科-->
+                <div class="tab-pane fade" id="gynecology">
+                    <!--调查表内容-->
+                    <div class="bodyInfo" style ="
+                        width: 80%;
+                        height: 60%;
+                        margin-top: 2%;
+                        margin-left: 10%;
+                        background-color: rgb(188, 207, 241);">
+    
+                        <b style="
+                            width: 700px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 250px;
+                            font-size: 30px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: darkorchid;">症状调查表</b><br>
+            
+            
+           
+                            选择医生：
+                            <select name="doctors">
+                            <option value="doctor_Liu" selected>刘医生</option>
+                            <option value="doctor_Li">李医生</option>
+                            <option value="doctor_Zhao">赵医生</option>
+                            <option value="doctor_Wang">王医生</option>
+                            </select>
+
+                            <br>
+                             
+                            <!--外阴瘙痒，白带增多，白带稀薄呈异色，白带腥臭味，白带脓性，
+                                白带，臭味，血性白带，性交出血，腰痛，下腹痛，下腹坠涨，
+                                尿频，大便坠胀，月经失调，下腹部痉挛性疼痛，不适，失眠，心烦，易怒，月经不调，乳头溢液-->
+                            症状:<br>
+                                <input type="checkbox" name="symptom1" value="白带异常">
+                                白带异常<br>
+                                
+                                <input type="checkbox" name="symptom2" value="下腹不适">
+                                下腹坠胀；下腹疼痛；下腹部痉挛性疼痛<br>
+    
+                                <input type="checkbox" name="symptom3" value="失眠，心烦，易怒">
+                                失眠，心烦，易怒<br>
+                                
+                                <input type="checkbox" name="symptom4" value="月经不调">
+                                月经不调<br>
+                                
+                                <input type="checkbox" name="symptom5" value="外阴瘙痒">
+                                外阴瘙痒<br>
+
+                                <input type="checkbox" name="symptom6" value="乳头溢液">
+                                乳头溢液<br>
+                                
+                                <input type="checkbox" name="symptom7" value="不符合上述症状">
+                                不符合上述症状<br>
+
+                                其他问题：
+                                <br>
+                                <textarea rows='10' name='other_symptoms' cols='40' style="
+                                    height: 200px;"></textarea><br>
+                                <input type='submit' value='提交' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;"><br>
+                                <input type='reset' value='重置' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;">
+                            </form>
+                            <div class="tail" id="tail" style="
+                            width: 520px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 12%;
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: rgb(250, 3, 3);">
+                        <p><b>注意：</b> 部分地区和部分药品社保卡无法报销，请自行缴费
+                        </p>
+                        </div>           
+                    </div>
+                </div>
+
+
+
+
+                 <!--泌尿系统-->
+                 <div class="tab-pane fade" id="UrinarySystem">
+                    <!--调查表内容-->
+                    <div class="bodyInfo" style ="
+                        width: 80%;
+                        height: 60%;
+                        margin-top: 2%;
+                        margin-left: 10%;
+                        background-color: rgb(188, 207, 241);   ">
+    
+                        <b style="
+                            width: 700px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 250px;
+                            font-size: 30px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: darkorchid;">症状调查表</b><br>
+            
+            
+           
+                            选择医生：
+                            <select name="doctors">
+                            <option value="doctor_Liu" selected>刘医生</option>
+                            <option value="doctor_Li">李医生</option>
+                            <option value="doctor_Zhao">赵医生</option>
+                            <option value="doctor_Wang">王医生</option>
+                            </select>
+
+                            <br>
+                             
+                            <!--尿路刺激，尿频、尿急、尿痛、排尿不适，发热、寒战、头痛，
+                                肾绞痛，突发性刀割样疼痛，放射性疼痛，大汗、恶心呕吐，
+                                尿中出现脓细胞，有尿频、尿痛，阳痿、早泄，排尿等待，尿线变细，
+                                射程变短、尿后滴沥、排尿时间延长，尿潴留，血尿-->
+                            症状:<br>
+                                <input type="checkbox" name="symptom1" value="排尿不适">
+                                尿路刺激（尿频，尿急，尿痛），排尿不适<br>
+                                
+                                <input type="checkbox" name="symptom2" value="肾绞痛">
+                                肾绞痛<br>
+    
+                                <input type="checkbox" name="symptom3" value="刀割样疼痛">
+                                突发性刀割样疼痛<br>
+                                
+                                <input type="checkbox" name="symptom4" value="阳痿，早泄">
+                                阳痿，早泄<br>
+                                
+                                <input type="checkbox" name="symptom5" value="尿线路问题">
+                                尿线变细，射程变短<br>
+
+                                <input type="checkbox" name="symptom6" value="尿后滴沥">
+                                尿后滴沥<br>
+
+                                <input type="checkbox" name="symptom7" value="不符合上述症状">
+                                不符合上述症状<br>
+
+                                其他问题：
+                                <br>
+                                <textarea rows='10' name='other_symptoms' cols='40' style="
+                                    height: 200px;"></textarea><br>
+                                <input type='submit' value='提交' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;"><br>
+                                <input type='reset' value='重置' style="
+                                    font-size: 20px;
+                                    font-family: 微软雅黑;
+                                    font-weight: bold;
+                                    line-height: 20px;
+                                    border-radius: 5px;
+                                    color: #ffffff;
+                                    background-color: #37B4CA;">
+                            </form>
+                            <div class="tail" id="tail" style="
+                            width: 520px;
+                            height: 50px;
+                            margin-top: 5px;
+                            margin-left: 12%;
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: rgb(250, 3, 3);">
+                        <p><b>注意：</b> 部分地区和部分药品社保卡无法报销，请自行缴费
+                        </p>
+                        </div>           
+                    </div>
+                </div>
+
+            </div>
+
+
+       
+
+     
+    </body>
+    </html>
